@@ -1,0 +1,137 @@
+spring:
+  application:
+    name: spring-auth-service
+
+  # Database Configuration (H2 In-Memory)
+  datasource:
+    url: jdbc:h2:mem:authserverdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  # H2 Console (for development)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # Initialize schema
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+  # LDAP / Active Directory Configuration
+  ldap:
+    urls: ldap://localhost:389
+    base: dc=company,dc=com
+    username: CN=service-account,OU=Services,DC=company,DC=com
+    password: ${LDAP_PASSWORD:changeit}
+
+# Server Configuration
+server:
+  port: 9000
+  servlet:
+    context-path: /
+  # SSL Configuration (uncomment for production)
+  # ssl:
+  #   enabled: true
+  #   key-store: classpath:keystore.p12
+  #   key-store-password: ${SSL_KEYSTORE_PASSWORD}
+  #   key-store-type: PKCS12
+  #   key-alias: authserver
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.corp.authserver: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: TRACE
+    org.springframework.ldap: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/authserver.log
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Custom Authorization Server Properties
+authserver:
+  # Token Configuration
+  token:
+    access-token-validity-seconds: 3600          # 1 hour
+    refresh-token-validity-seconds: 2592000      # 30 days
+    id-token-validity-seconds: 3600              # 1 hour
+    reuse-refresh-tokens: false                  # Enable refresh token rotation
+
+  # JWT Configuration
+  jwt:
+    issuer: https://authserver.company.com
+    key-store:
+      path: ${JWT_KEYSTORE_PATH:classpath:jwt-keystore.p12}
+      password: ${JWT_KEYSTORE_PASSWORD:changeit}
+      alias: ${JWT_KEY_ALIAS:jwt-key}
+
+  # Key Rotation
+  key-rotation:
+    enabled: true
+    rotation-days: 90
+    grace-period-days: 7
+
+  # Security
+  security:
+    require-https: false                         # Set to true in production
+    pkce-required-for-public-clients: true
+    csrf-protection-enabled: true
+
+  # Rate Limiting
+  rate-limit:
+    enabled: true
+    requests-per-minute: 60
+
+  # CORS Configuration
+  cors:
+    allowed-origins:
+      - https://webapp.company.com
+      - https://admin.company.com
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    allowed-headers:
+      - "*"
+    allow-credentials: true
+    max-age: 3600
+
+# Spring Doc / OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true

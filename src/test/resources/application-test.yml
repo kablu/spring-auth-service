@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: spring-auth-service-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+server:
+  port: 0
+
+logging:
+  level:
+    root: WARN
+    com.corp.authserver: DEBUG
+    org.springframework.security: DEBUG
+
+authserver:
+  token:
+    access-token-validity-seconds: 300
+    refresh-token-validity-seconds: 600
+    id-token-validity-seconds: 300
+    reuse-refresh-tokens: false
+  jwt:
+    issuer: http://localhost:9000
+  key-rotation:
+    enabled: false
+    rotation-days: 1
+    grace-period-days: 1
+  security:
+    require-https: false
+    pkce-required-for-public-clients: true
+    csrf-protection-enabled: false
+  rate-limit:
+    enabled: false
+  cors:
+    allowed-origins:
+      - http://localhost:8080
+    allowed-methods:
+      - GET
+      - POST

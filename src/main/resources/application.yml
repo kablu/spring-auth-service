@@ -90,7 +90,7 @@ authserver:
 
   # JWT Configuration
   jwt:
-    issuer: https://authserver.company.com
+    issuer: http://localhost:9000
     key-store:
       path: ${JWT_KEYSTORE_PATH:classpath:jwt-keystore.p12}
       password: ${JWT_KEYSTORE_PASSWORD:changeit}

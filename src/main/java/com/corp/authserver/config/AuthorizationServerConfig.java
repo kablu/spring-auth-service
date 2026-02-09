@@ -1,5 +1,6 @@
 package com.corp.authserver.config;
 
+import com.corp.authserver.service.CustomOidcUserInfoService;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import lombok.RequiredArgsConstructor;
@@ -12,35 +13,52 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
+import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
+import org.springframework.security.oauth2.server.authorization.oidc.authentication.OidcUserInfoAuthenticationContext;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
 
 import java.time.Duration;
-import java.util.UUID;
+import java.util.*;
+import java.util.function.Function;
 
 @Configuration
 @RequiredArgsConstructor
 public class AuthorizationServerConfig {
 
     private final AuthServerProperties properties;
+    private final CustomOidcUserInfoService userInfoService;
 
     @Bean
     @Order(1)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
 
+        Function<OidcUserInfoAuthenticationContext, OidcUserInfo> userInfoMapper = context -> {
+            JwtAuthenticationToken principal = (JwtAuthenticationToken) context.getAuthentication().getPrincipal();
+            String username = principal.getToken().getClaimAsString("sub");
+            List<String> scopeList = principal.getToken().getClaimAsStringList("scope");
+            Set<String> scopes = scopeList != null ? new HashSet<>(scopeList) : Set.of();
+            return userInfoService.loadUser(username, scopes);
+        };
+
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-                .oidc(Customizer.withDefaults());
+                .oidc(oidc -> oidc
+                        .userInfoEndpoint(userInfo -> userInfo
+                                .userInfoMapper(userInfoMapper)
+                        )
+                );
 
         http.exceptionHandling(exceptions -> exceptions
                 .defaultAuthenticationEntryPointFor(

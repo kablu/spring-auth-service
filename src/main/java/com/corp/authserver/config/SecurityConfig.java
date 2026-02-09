@@ -14,6 +14,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -36,16 +37,29 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/v3/api-docs/**",
-                                "/error"
+                                "/error",
+                                "/.well-known/**"
                         ).permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/clients/**").authenticated()
                         .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults())
+                .formLogin(form -> form
+                        .defaultSuccessUrl("/swagger-ui.html", false)
+                )
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame.sameOrigin())
+                )
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
         if (properties.getSecurity().isCsrfProtectionEnabled()) {
-            http.csrf(Customizer.withDefaults());
+            http.csrf(csrf -> csrf
+                    .ignoringRequestMatchers(
+                            new AntPathRequestMatcher("/api/auth/**"),
+                            new AntPathRequestMatcher("/h2-console/**")
+                    )
+            );
         }
 
         if (properties.getSecurity().isRequireHttps()) {

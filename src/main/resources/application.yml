@@ -118,6 +118,7 @@ authserver:
     allowed-origins:
       - https://webapp.company.com
       - https://admin.company.com
+      - http://localhost:4200
     allowed-methods:
       - GET
       - POST

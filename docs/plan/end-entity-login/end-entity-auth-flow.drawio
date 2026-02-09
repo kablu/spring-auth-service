@@ -33,92 +33,92 @@
         </mxCell>
 
         <!-- ===== STEP 1: User Opens Login Page ===== -->
-        <mxCell id="s1" value="&lt;b&gt;User opens login page&lt;/b&gt;&lt;br&gt;http://localhost:4200/login" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="s1" value="&lt;b&gt;User opens login page&lt;/b&gt;&lt;br&gt;http://localhost:4200/login" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="60" y="195" width="180" height="50" as="geometry"/>
         </mxCell>
         <mxCell id="e_start_s1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="start" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 2: Click Sign In ===== -->
-        <mxCell id="s2" value="&lt;b&gt;Click 'Sign In'&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Generate PKCE:&lt;/font&gt;&lt;br&gt;code_verifier (128 chars)&lt;br&gt;code_challenge = SHA256(verifier)&lt;br&gt;state = random(32)" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s2" value="&lt;b&gt;Click 'Sign In'&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Generate PKCE:&lt;/font&gt;&lt;br&gt;code_verifier (128 chars)&lt;br&gt;code_challenge = SHA256(verifier)&lt;br&gt;state = random(32)" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="45" y="275" width="210" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_s1_s2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s1" target="s2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- CLIENT VALIDATION 1 -->
-        <mxCell id="cv1" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ PKCE generated&lt;br&gt;✓ State stored in sessionStorage&lt;br&gt;✓ code_verifier stored" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="cv1" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ PKCE generated&lt;br&gt;✓ State stored in sessionStorage&lt;br&gt;✓ code_verifier stored" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="45" y="370" width="210" height="60" as="geometry"/>
         </mxCell>
 
         <!-- ===== STEP 3: Redirect to Auth Server ===== -->
-        <mxCell id="s3" value="&lt;b&gt;Browser redirects to:&lt;/b&gt;&lt;br&gt;/oauth2/authorize?&lt;br&gt;response_type=code&lt;br&gt;&amp;client_id=spa-client&lt;br&gt;&amp;redirect_uri=.../callback&lt;br&gt;&amp;scope=openid profile read&lt;br&gt;&amp;code_challenge=...&amp;state=..." style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s3" value="&lt;b&gt;Browser redirects to:&lt;/b&gt;&lt;br&gt;/oauth2/authorize?&lt;br&gt;response_type=code&lt;br&gt;&amp;client_id=spa-client&lt;br&gt;&amp;redirect_uri=.../callback&lt;br&gt;&amp;scope=openid profile read&lt;br&gt;&amp;code_challenge=...&amp;state=..." style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="345" y="445" width="250" height="100" as="geometry"/>
         </mxCell>
         <mxCell id="e_cv1_s3" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="cv1" target="s3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- SERVER VALIDATION 1 -->
-        <mxCell id="sv1" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ client_id exists in RegisteredClientRepository&lt;br&gt;✓ redirect_uri matches registered URIs&lt;br&gt;✓ scope is allowed for this client&lt;br&gt;✓ response_type=code supported&lt;br&gt;✓ PKCE code_challenge present (required for spa-client)&lt;br&gt;✓ code_challenge_method = S256" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="sv1" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ client_id exists in RegisteredClientRepository&lt;br&gt;✓ redirect_uri matches registered URIs&lt;br&gt;✓ scope is allowed for this client&lt;br&gt;✓ response_type=code supported&lt;br&gt;✓ PKCE code_challenge present (required for spa-client)&lt;br&gt;✓ code_challenge_method = S256" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="345" y="555" width="250" height="95" as="geometry"/>
         </mxCell>
 
         <!-- ERROR: Invalid Client -->
-        <mxCell id="err1" value="&lt;font color='#c62828'&gt;&lt;b&gt;ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• invalid_client: Client not registered&lt;br&gt;• invalid_request: Missing redirect_uri&lt;br&gt;• invalid_scope: Scope not allowed&lt;br&gt;• invalid_request: PKCE required&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="err1" value="&lt;font color='#c62828'&gt;&lt;b&gt;ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• invalid_client: Client not registered&lt;br&gt;• invalid_request: Missing redirect_uri&lt;br&gt;• invalid_scope: Scope not allowed&lt;br&gt;• invalid_request: PKCE required&lt;/font&gt;" style="html=1;shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="620" y="455" width="230" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_s3_err1" value="FAIL" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#c62828;fontColor=#c62828;fontSize=9;" edge="1" source="s3" target="err1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 4: Decision - User Authenticated? ===== -->
-        <mxCell id="d1" value="User has&lt;br&gt;active session?" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="d1" value="User has&lt;br&gt;active session?" style="html=1;rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="415" y="670" width="120" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_sv1_d1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sv1" target="d1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 5: Show Login Form ===== -->
-        <mxCell id="s5" value="&lt;b&gt;Show Login Form&lt;/b&gt;&lt;br&gt;/login&lt;br&gt;&lt;font color='#666'&gt;Username &amp; Password fields&lt;br&gt;+ CSRF token in form&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s5" value="&lt;b&gt;Show Login Form&lt;/b&gt;&lt;br&gt;/login&lt;br&gt;&lt;font color='#666'&gt;Username &amp; Password fields&lt;br&gt;+ CSRF token in form&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="370" y="790" width="200" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_d1_s5" value="NO" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontSize=10;fontColor=#c62828;" edge="1" source="d1" target="s5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 5b: User Enters Credentials ===== -->
-        <mxCell id="s5b" value="&lt;b&gt;User enters credentials&lt;/b&gt;&lt;br&gt;POST /login&lt;br&gt;username=john.doe&lt;br&gt;password=****&lt;br&gt;_csrf=token" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s5b" value="&lt;b&gt;User enters credentials&lt;/b&gt;&lt;br&gt;POST /login&lt;br&gt;username=john.doe&lt;br&gt;password=****&lt;br&gt;_csrf=token" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="60" y="790" width="180" height="75" as="geometry"/>
         </mxCell>
         <mxCell id="e_s5_s5b" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="s5" target="s5b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- CLIENT VALIDATION 2 -->
-        <mxCell id="cv2" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ Username not empty&lt;br&gt;✓ Password not empty&lt;br&gt;✓ CSRF token present" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="cv2" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ Username not empty&lt;br&gt;✓ Password not empty&lt;br&gt;✓ CSRF token present" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="60" y="880" width="180" height="55" as="geometry"/>
         </mxCell>
 
         <!-- ===== STEP 6: Server Validates Credentials ===== -->
-        <mxCell id="s6" value="&lt;b&gt;AuthenticationManager&lt;/b&gt;&lt;br&gt;validates credentials&lt;br&gt;&lt;font color='#666'&gt;DaoAuthenticationProvider or&lt;br&gt;ActiveDirectoryLdapAuthProvider&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s6" value="&lt;b&gt;AuthenticationManager&lt;/b&gt;&lt;br&gt;validates credentials&lt;br&gt;&lt;font color='#666'&gt;DaoAuthenticationProvider or&lt;br&gt;ActiveDirectoryLdapAuthProvider&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="360" y="890" width="220" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_cv2_s6" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="cv2" target="s6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 7: AD Lookup ===== -->
-        <mxCell id="s7" value="&lt;b&gt;LDAP Bind + Search&lt;/b&gt;&lt;br&gt;ldap://localhost:389&lt;br&gt;base: dc=company,dc=com&lt;br&gt;&lt;font color='#666'&gt;1. Bind with service account&lt;br&gt;2. Search user by sAMAccountName&lt;br&gt;3. Bind with user credentials&lt;br&gt;4. Fetch groups/roles&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s7" value="&lt;b&gt;LDAP Bind + Search&lt;/b&gt;&lt;br&gt;ldap://localhost:389&lt;br&gt;base: dc=company,dc=com&lt;br&gt;&lt;font color='#666'&gt;1. Bind with service account&lt;br&gt;2. Search user by sAMAccountName&lt;br&gt;3. Bind with user credentials&lt;br&gt;4. Fetch groups/roles&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="680" y="870" width="240" height="105" as="geometry"/>
         </mxCell>
         <mxCell id="e_s6_s7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s6" target="s7" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- AD VALIDATION -->
-        <mxCell id="av1" value="&lt;b&gt;AD VALIDATION&lt;/b&gt;&lt;br&gt;✓ User exists in AD (sAMAccountName)&lt;br&gt;✓ Account is enabled (userAccountControl)&lt;br&gt;✓ Account not locked (lockoutTime)&lt;br&gt;✓ Account not expired (accountExpires)&lt;br&gt;✓ Password not expired (pwdLastSet)&lt;br&gt;✓ Password matches (LDAP bind success)&lt;br&gt;✓ User belongs to allowed groups" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="av1" value="&lt;b&gt;AD VALIDATION&lt;/b&gt;&lt;br&gt;✓ User exists in AD (sAMAccountName)&lt;br&gt;✓ Account is enabled (userAccountControl)&lt;br&gt;✓ Account not locked (lockoutTime)&lt;br&gt;✓ Account not expired (accountExpires)&lt;br&gt;✓ Password not expired (pwdLastSet)&lt;br&gt;✓ Password matches (LDAP bind success)&lt;br&gt;✓ User belongs to allowed groups" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="680" y="990" width="240" height="105" as="geometry"/>
         </mxCell>
 
         <!-- ERROR: AD Failures -->
-        <mxCell id="err2" value="&lt;font color='#c62828'&gt;&lt;b&gt;AD ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• &lt;b&gt;Bad credentials&lt;/b&gt;: Invalid username/password&lt;br&gt;• &lt;b&gt;Account disabled&lt;/b&gt;: AD account is disabled&lt;br&gt;• &lt;b&gt;Account locked&lt;/b&gt;: Too many failed attempts&lt;br&gt;• &lt;b&gt;Account expired&lt;/b&gt;: AD account expired&lt;br&gt;• &lt;b&gt;Credentials expired&lt;/b&gt;: Password must be changed&lt;br&gt;• &lt;b&gt;LDAP unreachable&lt;/b&gt;: Connection timeout&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="err2" value="&lt;font color='#c62828'&gt;&lt;b&gt;AD ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• &lt;b&gt;Bad credentials&lt;/b&gt;: Invalid username/password&lt;br&gt;• &lt;b&gt;Account disabled&lt;/b&gt;: AD account is disabled&lt;br&gt;• &lt;b&gt;Account locked&lt;/b&gt;: Too many failed attempts&lt;br&gt;• &lt;b&gt;Account expired&lt;/b&gt;: AD account expired&lt;br&gt;• &lt;b&gt;Credentials expired&lt;/b&gt;: Password must be changed&lt;br&gt;• &lt;b&gt;LDAP unreachable&lt;/b&gt;: Connection timeout&lt;/font&gt;" style="html=1;shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="680" y="1110" width="240" height="100" as="geometry"/>
         </mxCell>
 
         <!-- ===== STEP 8: Decision - Auth Success? ===== -->
-        <mxCell id="d2" value="AD Auth&lt;br&gt;Success?" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="d2" value="AD Auth&lt;br&gt;Success?" style="html=1;rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="415" y="990" width="110" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_av1_d2" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="av1" target="d2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Failure path back to login -->
-        <mxCell id="err_login" value="&lt;font color='#c62828'&gt;&lt;b&gt;Show Error on Login Page&lt;/b&gt;&lt;br&gt;'Invalid username or password'&lt;br&gt;'Account is locked'&lt;br&gt;'Account is disabled'&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="err_login" value="&lt;font color='#c62828'&gt;&lt;b&gt;Show Error on Login Page&lt;/b&gt;&lt;br&gt;'Invalid username or password'&lt;br&gt;'Account is locked'&lt;br&gt;'Account is disabled'&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="60" y="985" width="180" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_d2_err" value="FAIL" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=10;" edge="1" source="d2" target="err_login" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -127,69 +127,69 @@
         </mxCell>
 
         <!-- ===== STEP 9: Check Concurrent Session ===== -->
-        <mxCell id="s9" value="&lt;b&gt;Check Concurrent Sessions&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Query: SELECT * FROM&lt;br&gt;spring_session WHERE&lt;br&gt;principal_name = ?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s9" value="&lt;b&gt;Check Concurrent Sessions&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Query: SELECT * FROM&lt;br&gt;spring_session WHERE&lt;br&gt;principal_name = ?&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="990" y="1080" width="240" height="65" as="geometry"/>
         </mxCell>
 
         <!-- DB VALIDATION -->
-        <mxCell id="dbv1" value="&lt;b&gt;DB VALIDATION&lt;/b&gt;&lt;br&gt;✓ No existing active session for user&lt;br&gt;✓ If exists → invalidate old session&lt;br&gt;✓ Prevent concurrent login" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="dbv1" value="&lt;b&gt;DB VALIDATION&lt;/b&gt;&lt;br&gt;✓ No existing active session for user&lt;br&gt;✓ If exists → invalidate old session&lt;br&gt;✓ Prevent concurrent login" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="990" y="1155" width="240" height="60" as="geometry"/>
         </mxCell>
 
         <!-- ===== STEP 10: Create Session + Generate Auth Code ===== -->
-        <mxCell id="s10" value="&lt;b&gt;Authentication Success&lt;/b&gt;&lt;br&gt;1. Create SecurityContext&lt;br&gt;2. Store session (JSESSIONID)&lt;br&gt;3. Generate authorization_code&lt;br&gt;4. Save authorization to DB" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s10" value="&lt;b&gt;Authentication Success&lt;/b&gt;&lt;br&gt;1. Create SecurityContext&lt;br&gt;2. Store session (JSESSIONID)&lt;br&gt;3. Generate authorization_code&lt;br&gt;4. Save authorization to DB" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="370" y="1095" width="200" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_d2_s10" value="SUCCESS" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=10;" edge="1" source="d2" target="s10" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Store auth code in DB -->
-        <mxCell id="s10db" value="&lt;b&gt;Store Authorization&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO&lt;br&gt;oauth2_authorization&lt;br&gt;(auth_code, state, code_challenge,&lt;br&gt;principal_name, scopes, ...)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s10db" value="&lt;b&gt;Store Authorization&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO&lt;br&gt;oauth2_authorization&lt;br&gt;(auth_code, state, code_challenge,&lt;br&gt;principal_name, scopes, ...)&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="990" y="990" width="240" height="75" as="geometry"/>
         </mxCell>
         <mxCell id="e_s10_db" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="s10" target="s10db" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 11: Redirect with Code ===== -->
-        <mxCell id="s11" value="&lt;b&gt;302 Redirect&lt;/b&gt;&lt;br&gt;http://localhost:4200/callback&lt;br&gt;?code=Kbm7yL-Gx1b_q...&lt;br&gt;&amp;state=-S7ErMXl0C6Z..." style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s11" value="&lt;b&gt;302 Redirect&lt;/b&gt;&lt;br&gt;http://localhost:4200/callback&lt;br&gt;?code=Kbm7yL-Gx1b_q...&lt;br&gt;&amp;state=-S7ErMXl0C6Z..." style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="55" y="1100" width="190" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_s10_s11" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s10" target="s11" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 12: Token Exchange ===== -->
-        <mxCell id="s12" value="&lt;b&gt;CallbackComponent&lt;/b&gt;&lt;br&gt;1. Validate state matches sessionStorage&lt;br&gt;2. POST /api/auth/token&lt;br&gt;{code, code_verifier, redirect_uri, client_id}" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s12" value="&lt;b&gt;CallbackComponent&lt;/b&gt;&lt;br&gt;1. Validate state matches sessionStorage&lt;br&gt;2. POST /api/auth/token&lt;br&gt;{code, code_verifier, redirect_uri, client_id}" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="45" y="1195" width="210" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_s11_s12" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s11" target="s12" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 13: Server Token Exchange ===== -->
-        <mxCell id="s13" value="&lt;b&gt;Token Endpoint /oauth2/token&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Validate auth code exists &amp; not expired&lt;br&gt;2. Validate code_verifier: SHA256(verifier) == challenge&lt;br&gt;3. Validate redirect_uri matches&lt;br&gt;4. Generate JWT access_token (RS256)&lt;br&gt;5. Generate refresh_token&lt;br&gt;6. Generate id_token (OIDC)&lt;br&gt;7. Invalidate auth code (single use)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s13" value="&lt;b&gt;Token Endpoint /oauth2/token&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Validate auth code exists &amp; not expired&lt;br&gt;2. Validate code_verifier: SHA256(verifier) == challenge&lt;br&gt;3. Validate redirect_uri matches&lt;br&gt;4. Generate JWT access_token (RS256)&lt;br&gt;5. Generate refresh_token&lt;br&gt;6. Generate id_token (OIDC)&lt;br&gt;7. Invalidate auth code (single use)&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="340" y="1195" width="260" height="110" as="geometry"/>
         </mxCell>
         <mxCell id="e_s12_s13" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s12" target="s13" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- SERVER VALIDATION 2 -->
-        <mxCell id="sv2" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ Auth code not expired (5 min TTL)&lt;br&gt;✓ Auth code not already used&lt;br&gt;✓ PKCE: SHA256(code_verifier) == code_challenge&lt;br&gt;✓ redirect_uri matches original request&lt;br&gt;✓ client_id matches authorization" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="sv2" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ Auth code not expired (5 min TTL)&lt;br&gt;✓ Auth code not already used&lt;br&gt;✓ PKCE: SHA256(code_verifier) == code_challenge&lt;br&gt;✓ redirect_uri matches original request&lt;br&gt;✓ client_id matches authorization" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="340" y="1315" width="260" height="80" as="geometry"/>
         </mxCell>
 
         <!-- Token errors -->
-        <mxCell id="err3" value="&lt;font color='#c62828'&gt;&lt;b&gt;TOKEN ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• invalid_grant: Code expired/used&lt;br&gt;• invalid_grant: PKCE verification failed&lt;br&gt;• invalid_client: Unknown client_id&lt;br&gt;• invalid_request: redirect_uri mismatch&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="err3" value="&lt;font color='#c62828'&gt;&lt;b&gt;TOKEN ERROR RESPONSES&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font color='#c62828'&gt;• invalid_grant: Code expired/used&lt;br&gt;• invalid_grant: PKCE verification failed&lt;br&gt;• invalid_client: Unknown client_id&lt;br&gt;• invalid_request: redirect_uri mismatch&lt;/font&gt;" style="html=1;shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="680" y="1235" width="240" height="75" as="geometry"/>
         </mxCell>
 
         <!-- DB: Store tokens -->
-        <mxCell id="s13db" value="&lt;b&gt;Store Tokens in DB&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;UPDATE oauth2_authorization&lt;br&gt;SET access_token=?, refresh_token=?,&lt;br&gt;id_token=?, access_token_expires_at=?&lt;br&gt;WHERE authorization_code=?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="s13db" value="&lt;b&gt;Store Tokens in DB&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;UPDATE oauth2_authorization&lt;br&gt;SET access_token=?, refresh_token=?,&lt;br&gt;id_token=?, access_token_expires_at=?&lt;br&gt;WHERE authorization_code=?&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="990" y="1230" width="240" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_s13_db" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="s13" target="s13db" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 14: SUCCESS - Store Tokens & Redirect ===== -->
-        <mxCell id="success1" value="&lt;b&gt;✓ SUCCESS RESPONSE&lt;/b&gt;&lt;br&gt;&lt;font color='#2e7d32'&gt;{&lt;br&gt;  access_token: 'eyJhbG...',&lt;br&gt;  refresh_token: 'abc...',&lt;br&gt;  id_token: 'eyJhbG...',&lt;br&gt;  token_type: 'Bearer',&lt;br&gt;  expires_in: 3600,&lt;br&gt;  scope: 'openid profile read'&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="success1" value="&lt;b&gt;✓ SUCCESS RESPONSE&lt;/b&gt;&lt;br&gt;&lt;font color='#2e7d32'&gt;{&lt;br&gt;  access_token: 'eyJhbG...',&lt;br&gt;  refresh_token: 'abc...',&lt;br&gt;  id_token: 'eyJhbG...',&lt;br&gt;  token_type: 'Bearer',&lt;br&gt;  expires_in: 3600,&lt;br&gt;  scope: 'openid profile read'&lt;br&gt;}&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="45" y="1310" width="210" height="120" as="geometry"/>
         </mxCell>
         <mxCell id="e_s13_success" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;" edge="1" source="s13" target="success1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- ===== STEP 15: Redirect to Dashboard ===== -->
-        <mxCell id="s15" value="&lt;b&gt;Store tokens in localStorage&lt;/b&gt;&lt;br&gt;Redirect to role-based dashboard:&lt;br&gt;&lt;font color='#2e7d32'&gt;ROLE_ADMIN → /admin/dashboard&lt;br&gt;ROLE_USER → /protected&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s15" value="&lt;b&gt;Store tokens in localStorage&lt;/b&gt;&lt;br&gt;Redirect to role-based dashboard:&lt;br&gt;&lt;font color='#2e7d32'&gt;ROLE_ADMIN → /admin/dashboard&lt;br&gt;ROLE_USER → /protected&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="45" y="1445" width="210" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_success_s15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;" edge="1" source="success1" target="s15" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -243,121 +243,121 @@
         </mxCell>
 
         <!-- Step 1: User logged in -->
-        <mxCell id="m1" value="&lt;b&gt;User already authenticated&lt;/b&gt;&lt;br&gt;(Login flow completed)&lt;br&gt;Has valid access_token" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m1" value="&lt;b&gt;User already authenticated&lt;/b&gt;&lt;br&gt;(Login flow completed)&lt;br&gt;Has valid access_token" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="190" width="220" height="55" as="geometry"/>
         </mxCell>
         <mxCell id="e_ms_m1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="mfa_start" target="m1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 2: Request sensitive operation -->
-        <mxCell id="m2" value="&lt;b&gt;User requests sensitive action&lt;/b&gt;&lt;br&gt;e.g. Generate Certificate,&lt;br&gt;Approve CSR, Revoke Cert" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m2" value="&lt;b&gt;User requests sensitive action&lt;/b&gt;&lt;br&gt;e.g. Generate Certificate,&lt;br&gt;Approve CSR, Revoke Cert" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="275" width="220" height="55" as="geometry"/>
         </mxCell>
         <mxCell id="e_m1_m2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m1" target="m2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 3: Server checks if MFA needed -->
-        <mxCell id="m3" value="&lt;b&gt;Check MFA Requirement&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Based on:&lt;br&gt;• Operation sensitivity level&lt;br&gt;• User role&lt;br&gt;• Security policy config&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m3" value="&lt;b&gt;Check MFA Requirement&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;Based on:&lt;br&gt;• Operation sensitivity level&lt;br&gt;• User role&lt;br&gt;• Security policy config&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="355" y="270" width="230" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_m2_m3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m2" target="m3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- SERVER VALIDATION -->
-        <mxCell id="msv1" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ Access token valid &amp; not expired&lt;br&gt;✓ User has required role for action&lt;br&gt;✓ Operation is in MFA-required list&lt;br&gt;✓ No recent MFA verification (cooldown)" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="msv1" value="&lt;b&gt;SERVER VALIDATION&lt;/b&gt;&lt;br&gt;✓ Access token valid &amp; not expired&lt;br&gt;✓ User has required role for action&lt;br&gt;✓ Operation is in MFA-required list&lt;br&gt;✓ No recent MFA verification (cooldown)" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="355" y="365" width="230" height="75" as="geometry"/>
         </mxCell>
 
         <!-- Decision: MFA needed? -->
-        <mxCell id="md1" value="MFA&lt;br&gt;Required?" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="md1" value="MFA&lt;br&gt;Required?" style="html=1;rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="420" y="460" width="100" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_msv1_md1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="msv1" target="md1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- No MFA: Proceed directly -->
-        <mxCell id="m_nomfa" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;Proceed without MFA&lt;/b&gt;&lt;br&gt;Execute requested action&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m_nomfa" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;Proceed without MFA&lt;/b&gt;&lt;br&gt;Execute requested action&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="468" width="220" height="45" as="geometry"/>
         </mxCell>
         <mxCell id="e_md1_nomfa" value="NO" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontSize=10;fontColor=#2e7d32;" edge="1" source="md1" target="m_nomfa" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 4: Return MFA challenge -->
-        <mxCell id="m4" value="&lt;b&gt;Return MFA Challenge&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;HTTP 403&lt;br&gt;{&lt;br&gt;  mfa_required: true,&lt;br&gt;  mfa_methods: ['sms','email'],&lt;br&gt;  mfa_token: 'temp-token-xxx',&lt;br&gt;  message: 'MFA required for&lt;br&gt;   this operation'&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="m4" value="&lt;b&gt;Return MFA Challenge&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;HTTP 403&lt;br&gt;{&lt;br&gt;  mfa_required: true,&lt;br&gt;  mfa_methods: ['sms','email'],&lt;br&gt;  mfa_token: 'temp-token-xxx',&lt;br&gt;  message: 'MFA required for&lt;br&gt;   this operation'&lt;br&gt;}&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="355" y="550" width="230" height="115" as="geometry"/>
         </mxCell>
         <mxCell id="e_md1_m4" value="YES" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontSize=10;fontColor=#c62828;" edge="1" source="md1" target="m4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 5: Show MFA UI -->
-        <mxCell id="m5" value="&lt;b&gt;Show MFA Dialog&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;'Additional verification required'&lt;br&gt;Choose: SMS or Email&lt;br&gt;[Send OTP] button&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m5" value="&lt;b&gt;Show MFA Dialog&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;'Additional verification required'&lt;br&gt;Choose: SMS or Email&lt;br&gt;[Send OTP] button&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="565" width="220" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_m4_m5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m4" target="m5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 6: User selects method -->
-        <mxCell id="m6" value="&lt;b&gt;User selects OTP method&lt;/b&gt;&lt;br&gt;POST /api/auth/mfa/send&lt;br&gt;{mfa_token, method: 'email'}" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m6" value="&lt;b&gt;User selects OTP method&lt;/b&gt;&lt;br&gt;POST /api/auth/mfa/send&lt;br&gt;{mfa_token, method: 'email'}" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="665" width="220" height="55" as="geometry"/>
         </mxCell>
         <mxCell id="e_m5_m6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m5" target="m6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Step 7: Generate & Send OTP -->
-        <mxCell id="m7" value="&lt;b&gt;Generate OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Generate 6-digit OTP&lt;br&gt;2. Hash and store with TTL (5 min)&lt;br&gt;3. Associate with mfa_token&lt;br&gt;4. Max 3 attempts allowed&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="m7" value="&lt;b&gt;Generate OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Generate 6-digit OTP&lt;br&gt;2. Hash and store with TTL (5 min)&lt;br&gt;3. Associate with mfa_token&lt;br&gt;4. Max 3 attempts allowed&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="355" y="685" width="230" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_m6_m7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m6" target="m7" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Store OTP in DB -->
-        <mxCell id="m7db" value="&lt;b&gt;Store OTP Hash&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO mfa_challenge&lt;br&gt;(mfa_token, otp_hash, method,&lt;br&gt;expires_at, attempts, user_id)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="m7db" value="&lt;b&gt;Store OTP Hash&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO mfa_challenge&lt;br&gt;(mfa_token, otp_hash, method,&lt;br&gt;expires_at, attempts, user_id)&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="960" y="665" width="200" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_m7_db" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="m7" target="m7db" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Send via SMS/Email -->
-        <mxCell id="m7sms" value="&lt;b&gt;Send OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;SMS: Send to user's registered phone&lt;br&gt;Email: Send to user's registered email&lt;br&gt;Subject: 'Your verification code: ******'&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#f3e5f5;strokeColor=#7b1fa2;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="m7sms" value="&lt;b&gt;Send OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;SMS: Send to user's registered phone&lt;br&gt;Email: Send to user's registered email&lt;br&gt;Subject: 'Your verification code: ******'&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#f3e5f5;strokeColor=#7b1fa2;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="665" y="690" width="235" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_m7_sms" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m7" target="m7sms" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- SMS/Email errors -->
-        <mxCell id="mfa_err1" value="&lt;font color='#c62828'&gt;&lt;b&gt;DELIVERY ERRORS&lt;/b&gt;&lt;br&gt;• SMS gateway timeout&lt;br&gt;• Invalid phone number&lt;br&gt;• Email delivery failed&lt;br&gt;• Rate limit exceeded (max 3/10min)&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="mfa_err1" value="&lt;font color='#c62828'&gt;&lt;b&gt;DELIVERY ERRORS&lt;/b&gt;&lt;br&gt;• SMS gateway timeout&lt;br&gt;• Invalid phone number&lt;br&gt;• Email delivery failed&lt;br&gt;• Rate limit exceeded (max 3/10min)&lt;/font&gt;" style="html=1;shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="665" y="780" width="235" height="75" as="geometry"/>
         </mxCell>
 
         <!-- Step 8: User enters OTP -->
-        <mxCell id="m8" value="&lt;b&gt;Show OTP Input&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;'Enter the 6-digit code sent to&lt;br&gt;your email/phone'&lt;br&gt;[______] [Verify] [Resend]&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m8" value="&lt;b&gt;Show OTP Input&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;'Enter the 6-digit code sent to&lt;br&gt;your email/phone'&lt;br&gt;[______] [Verify] [Resend]&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="795" width="220" height="65" as="geometry"/>
         </mxCell>
 
         <!-- CLIENT VALIDATION -->
-        <mxCell id="mcv1" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ OTP is exactly 6 digits&lt;br&gt;✓ OTP contains only numbers&lt;br&gt;✓ Not empty" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="mcv1" value="&lt;b&gt;CLIENT VALIDATION&lt;/b&gt;&lt;br&gt;✓ OTP is exactly 6 digits&lt;br&gt;✓ OTP contains only numbers&lt;br&gt;✓ Not empty" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="50" y="875" width="220" height="55" as="geometry"/>
         </mxCell>
 
         <!-- Step 9: Verify OTP -->
-        <mxCell id="m9" value="&lt;b&gt;POST /api/auth/mfa/verify&lt;/b&gt;&lt;br&gt;{mfa_token, otp: '123456'}" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="m9" value="&lt;b&gt;POST /api/auth/mfa/verify&lt;/b&gt;&lt;br&gt;{mfa_token, otp: '123456'}" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="955" width="220" height="45" as="geometry"/>
         </mxCell>
 
         <!-- Step 10: Server verifies -->
-        <mxCell id="m10" value="&lt;b&gt;Verify OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Lookup mfa_token in DB&lt;br&gt;2. Check not expired (5 min)&lt;br&gt;3. Check attempts &lt; max (3)&lt;br&gt;4. Compare hash(input) == stored_hash&lt;br&gt;5. If valid → mark as verified&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="m10" value="&lt;b&gt;Verify OTP&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Lookup mfa_token in DB&lt;br&gt;2. Check not expired (5 min)&lt;br&gt;3. Check attempts &lt; max (3)&lt;br&gt;4. Compare hash(input) == stored_hash&lt;br&gt;5. If valid → mark as verified&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="355" y="920" width="230" height="90" as="geometry"/>
         </mxCell>
         <mxCell id="e_m9_m10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m9" target="m10" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- DB VALIDATION -->
-        <mxCell id="mdbv1" value="&lt;b&gt;DB VALIDATION&lt;/b&gt;&lt;br&gt;✓ mfa_token exists in mfa_challenge&lt;br&gt;✓ expires_at &gt; NOW()&lt;br&gt;✓ attempts &lt; 3&lt;br&gt;✓ OTP hash matches&lt;br&gt;✓ Not already verified" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="mdbv1" value="&lt;b&gt;DB VALIDATION&lt;/b&gt;&lt;br&gt;✓ mfa_token exists in mfa_challenge&lt;br&gt;✓ expires_at &gt; NOW()&lt;br&gt;✓ attempts &lt; 3&lt;br&gt;✓ OTP hash matches&lt;br&gt;✓ Not already verified" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="960" y="910" width="200" height="80" as="geometry"/>
         </mxCell>
 
         <!-- MFA Decision -->
-        <mxCell id="md2" value="OTP&lt;br&gt;Valid?" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="md2" value="OTP&lt;br&gt;Valid?" style="html=1;rhombus;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="420" y="1035" width="100" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="e_m10_md2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="m10" target="md2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- MFA Errors -->
-        <mxCell id="mfa_err2" value="&lt;font color='#c62828'&gt;&lt;b&gt;MFA ERROR RESPONSES&lt;/b&gt;&lt;br&gt;• &lt;b&gt;invalid_otp&lt;/b&gt;: Code does not match&lt;br&gt;• &lt;b&gt;otp_expired&lt;/b&gt;: Code has expired (5 min)&lt;br&gt;• &lt;b&gt;max_attempts&lt;/b&gt;: Too many failed tries&lt;br&gt;• &lt;b&gt;invalid_mfa_token&lt;/b&gt;: Session not found&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="mfa_err2" value="&lt;font color='#c62828'&gt;&lt;b&gt;MFA ERROR RESPONSES&lt;/b&gt;&lt;br&gt;• &lt;b&gt;invalid_otp&lt;/b&gt;: Code does not match&lt;br&gt;• &lt;b&gt;otp_expired&lt;/b&gt;: Code has expired (5 min)&lt;br&gt;• &lt;b&gt;max_attempts&lt;/b&gt;: Too many failed tries&lt;br&gt;• &lt;b&gt;invalid_mfa_token&lt;/b&gt;: Session not found&lt;/font&gt;" style="html=1;shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=10;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="665" y="1025" width="235" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_md2_err" value="FAIL" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=10;" edge="1" source="md2" target="mfa_err2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- MFA Success -->
-        <mxCell id="mfa_success" value="&lt;b&gt;✓ MFA VERIFIED&lt;/b&gt;&lt;br&gt;&lt;font color='#2e7d32'&gt;{&lt;br&gt;  mfa_verified: true,&lt;br&gt;  elevated_token: 'eyJ...',&lt;br&gt;  valid_for: 300&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;font color='#666'&gt;Proceed with sensitive action&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="mfa_success" value="&lt;b&gt;✓ MFA VERIFIED&lt;/b&gt;&lt;br&gt;&lt;font color='#2e7d32'&gt;{&lt;br&gt;  mfa_verified: true,&lt;br&gt;  elevated_token: 'eyJ...',&lt;br&gt;  valid_for: 300&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;font color='#666'&gt;Proceed with sensitive action&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="50" y="1060" width="220" height="100" as="geometry"/>
         </mxCell>
         <mxCell id="e_md2_success" value="SUCCESS" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=10;" edge="1" source="md2" target="mfa_success" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -397,18 +397,18 @@
         </mxCell>
 
         <!-- Start: User active -->
-        <mxCell id="sa1" value="&lt;b&gt;User is authenticated&lt;/b&gt;&lt;br&gt;Start inactivity timer: 60 min&lt;br&gt;&lt;font color='#666'&gt;Track: mouse, keyboard, scroll, click&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sa1" value="&lt;b&gt;User is authenticated&lt;/b&gt;&lt;br&gt;Start inactivity timer: 60 min&lt;br&gt;&lt;font color='#666'&gt;Track: mouse, keyboard, scroll, click&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="60" y="180" width="260" height="55" as="geometry"/>
         </mxCell>
 
         <!-- User Activity Detection -->
-        <mxCell id="sa2" value="&lt;b&gt;Activity Interceptor (Angular)&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;On every user interaction:&lt;br&gt;• Reset inactivity timer to 60 min&lt;br&gt;• Update lastActivityTime in memory&lt;br&gt;• Debounce: max 1 reset per 30 sec&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sa2" value="&lt;b&gt;Activity Interceptor (Angular)&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;On every user interaction:&lt;br&gt;• Reset inactivity timer to 60 min&lt;br&gt;• Update lastActivityTime in memory&lt;br&gt;• Debounce: max 1 reset per 30 sec&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="60" y="260" width="260" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_sa1_sa2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sa1" target="sa2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Decision: 55 min reached? -->
-        <mxCell id="sd1" value="55 min&lt;br&gt;inactive?" style="rhombus;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sd1" value="55 min&lt;br&gt;inactive?" style="html=1;rhombus;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="140" y="365" width="100" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_sa2_sd1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sa2" target="sd1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -419,19 +419,19 @@
         </mxCell>
 
         <!-- Warning popup -->
-        <mxCell id="sa3" value="&lt;b&gt;⚠ Show Warning Dialog&lt;/b&gt;&lt;br&gt;&lt;font color='#e65100'&gt;'Your session will expire in 5 minutes&lt;br&gt;due to inactivity.&lt;br&gt;[Stay Logged In] [Logout Now]'&lt;/font&gt;&lt;br&gt;&lt;font color='#666'&gt;Countdown timer: 5:00 → 0:00&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sa3" value="&lt;b&gt;⚠ Show Warning Dialog&lt;/b&gt;&lt;br&gt;&lt;font color='#e65100'&gt;'Your session will expire in 5 minutes&lt;br&gt;due to inactivity.&lt;br&gt;[Stay Logged In] [Logout Now]'&lt;/font&gt;&lt;br&gt;&lt;font color='#666'&gt;Countdown timer: 5:00 → 0:00&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="60" y="460" width="260" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="e_sd1_sa3" value="YES" style="edgeStyle=orthogonalEdgeStyle;fontStyle=1;fontSize=10;fontColor=#e65100;" edge="1" source="sd1" target="sa3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Decision: User responds? -->
-        <mxCell id="sd2" value="User clicks&lt;br&gt;'Stay Logged In'?" style="rhombus;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sd2" value="User clicks&lt;br&gt;'Stay Logged In'?" style="html=1;rhombus;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="120" y="570" width="140" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_sa3_sd2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sa3" target="sd2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Stay logged in: refresh token -->
-        <mxCell id="sa4" value="&lt;b&gt;Refresh Session&lt;/b&gt;&lt;br&gt;POST /api/auth/refresh&lt;br&gt;Reset timer to 60 min" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sa4" value="&lt;b&gt;Refresh Session&lt;/b&gt;&lt;br&gt;POST /api/auth/refresh&lt;br&gt;Reset timer to 60 min" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="415" y="500" width="230" height="50" as="geometry"/>
         </mxCell>
         <mxCell id="e_sd2_sa4" value="YES" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=10;" edge="1" source="sd2" target="sa4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -442,7 +442,7 @@
         </mxCell>
 
         <!-- Auto logout after 60 min -->
-        <mxCell id="sa5" value="&lt;font color='#c62828'&gt;&lt;b&gt;AUTO LOGOUT&lt;/b&gt;&lt;br&gt;Timer reached 0:00&lt;br&gt;Force logout immediately&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sa5" value="&lt;font color='#c62828'&gt;&lt;b&gt;AUTO LOGOUT&lt;/b&gt;&lt;br&gt;Timer reached 0:00&lt;br&gt;Force logout immediately&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="90" y="670" width="200" height="50" as="geometry"/>
         </mxCell>
         <mxCell id="e_sd2_sa5" value="NO / Timeout" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=9;" edge="1" source="sd2" target="sa5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -453,34 +453,34 @@
         </mxCell>
 
         <!-- User clicks logout -->
-        <mxCell id="sb1" value="&lt;b&gt;User clicks 'Logout'&lt;/b&gt;&lt;br&gt;(or auto-logout triggered)" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sb1" value="&lt;b&gt;User clicks 'Logout'&lt;/b&gt;&lt;br&gt;(or auto-logout triggered)" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="90" y="795" width="200" height="45" as="geometry"/>
         </mxCell>
 
         <!-- Revoke tokens -->
-        <mxCell id="sb2" value="&lt;b&gt;POST /api/auth/revoke&lt;/b&gt;&lt;br&gt;{token: access_token, client_id}" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sb2" value="&lt;b&gt;POST /api/auth/revoke&lt;/b&gt;&lt;br&gt;{token: access_token, client_id}" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="410" y="790" width="240" height="50" as="geometry"/>
         </mxCell>
         <mxCell id="e_sb1_sb2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sb1" target="sb2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- SERVER VALIDATION -->
-        <mxCell id="ssv1" value="&lt;b&gt;SERVER ACTIONS&lt;/b&gt;&lt;br&gt;1. Validate token exists&lt;br&gt;2. Add to token_blacklist table&lt;br&gt;3. Remove from oauth2_authorization&lt;br&gt;4. Invalidate server session (JSESSIONID)&lt;br&gt;5. Clear SecurityContext" style="shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
+        <mxCell id="ssv1" value="&lt;b&gt;SERVER ACTIONS&lt;/b&gt;&lt;br&gt;1. Validate token exists&lt;br&gt;2. Add to token_blacklist table&lt;br&gt;3. Remove from oauth2_authorization&lt;br&gt;4. Invalidate server session (JSESSIONID)&lt;br&gt;5. Clear SecurityContext" style="html=1;shape=note;size=15;fillColor=#fffde7;strokeColor=#f9a825;fontSize=9;align=left;spacingLeft=5;" vertex="1" parent="1">
           <mxGeometry x="410" y="855" width="240" height="85" as="geometry"/>
         </mxCell>
 
         <!-- DB: Blacklist token -->
-        <mxCell id="sb3" value="&lt;b&gt;Invalidate in DB&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO token_blacklist&lt;br&gt;(token_id, expires_at)&lt;br&gt;&lt;br&gt;DELETE FROM oauth2_authorization&lt;br&gt;WHERE access_token_value = ?&lt;br&gt;&lt;br&gt;DELETE FROM spring_session&lt;br&gt;WHERE principal_name = ?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sb3" value="&lt;b&gt;Invalidate in DB&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;INSERT INTO token_blacklist&lt;br&gt;(token_id, expires_at)&lt;br&gt;&lt;br&gt;DELETE FROM oauth2_authorization&lt;br&gt;WHERE access_token_value = ?&lt;br&gt;&lt;br&gt;DELETE FROM spring_session&lt;br&gt;WHERE principal_name = ?&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="730" y="800" width="210" height="120" as="geometry"/>
         </mxCell>
         <mxCell id="e_sb2_sb3" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="sb2" target="sb3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Client cleanup -->
-        <mxCell id="sb4" value="&lt;b&gt;Client-Side Cleanup&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Clear localStorage:&lt;br&gt;   access_token, refresh_token,&lt;br&gt;   id_token, token_expires_at&lt;br&gt;2. Clear sessionStorage&lt;br&gt;3. Reset auth state to false&lt;br&gt;4. Redirect to /login&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sb4" value="&lt;b&gt;Client-Side Cleanup&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;1. Clear localStorage:&lt;br&gt;   access_token, refresh_token,&lt;br&gt;   id_token, token_expires_at&lt;br&gt;2. Clear sessionStorage&lt;br&gt;3. Reset auth state to false&lt;br&gt;4. Redirect to /login&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="60" y="870" width="260" height="100" as="geometry"/>
         </mxCell>
 
         <!-- ===== SUCCESS: Logged Out ===== -->
-        <mxCell id="sb_success" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;✓ SESSION TERMINATED&lt;/b&gt;&lt;br&gt;• Server session invalidated&lt;br&gt;• Tokens revoked &amp; blacklisted&lt;br&gt;• Client storage cleared&lt;br&gt;• User redirected to /login&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="sb_success" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;✓ SESSION TERMINATED&lt;/b&gt;&lt;br&gt;• Server session invalidated&lt;br&gt;• Tokens revoked &amp; blacklisted&lt;br&gt;• Client storage cleared&lt;br&gt;• User redirected to /login&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="85" y="990" width="210" height="85" as="geometry"/>
         </mxCell>
         <mxCell id="e_sb4_success" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;" edge="1" source="sb4" target="sb_success" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
@@ -491,29 +491,29 @@
         </mxCell>
 
         <!-- User logs in from Device B -->
-        <mxCell id="sc1" value="&lt;b&gt;User logs in from Device B&lt;/b&gt;&lt;br&gt;(Already has session on Device A)" style="rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="sc1" value="&lt;b&gt;User logs in from Device B&lt;/b&gt;&lt;br&gt;(Already has session on Device A)" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="60" y="1155" width="260" height="45" as="geometry"/>
         </mxCell>
 
         <!-- Server detects -->
-        <mxCell id="sc2" value="&lt;b&gt;Concurrent Session Check&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;SessionRegistry.getAllSessions(principal)&lt;br&gt;Found: 1 existing session (Device A)&lt;br&gt;&lt;br&gt;Policy: maximumSessions(1)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sc2" value="&lt;b&gt;Concurrent Session Check&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;SessionRegistry.getAllSessions(principal)&lt;br&gt;Found: 1 existing session (Device A)&lt;br&gt;&lt;br&gt;Policy: maximumSessions(1)&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#e65100;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="405" y="1140" width="250" height="75" as="geometry"/>
         </mxCell>
         <mxCell id="e_sc1_sc2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sc1" target="sc2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Invalidate old session -->
-        <mxCell id="sc3" value="&lt;b&gt;Invalidate Device A Session&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;DELETE FROM spring_session&lt;br&gt;WHERE session_id = ? (Device A)&lt;br&gt;&lt;br&gt;Mark old tokens as revoked&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="sc3" value="&lt;b&gt;Invalidate Device A Session&lt;/b&gt;&lt;br&gt;&lt;font color='#666'&gt;DELETE FROM spring_session&lt;br&gt;WHERE session_id = ? (Device A)&lt;br&gt;&lt;br&gt;Mark old tokens as revoked&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#fce4ec;strokeColor=#c62828;fontSize=9;" vertex="1" parent="1">
           <mxGeometry x="730" y="1145" width="210" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="e_sc2_sc3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="sc2" target="sc3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
         <!-- Device A sees -->
-        <mxCell id="sc4" value="&lt;font color='#c62828'&gt;&lt;b&gt;Device A: Next API Call&lt;/b&gt;&lt;br&gt;HTTP 401 Unauthorized&lt;br&gt;{error: 'session_expired',&lt;br&gt; message: 'Logged in from&lt;br&gt; another device'}&lt;br&gt;&lt;br&gt;→ Forced redirect to /login&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="sc4" value="&lt;font color='#c62828'&gt;&lt;b&gt;Device A: Next API Call&lt;/b&gt;&lt;br&gt;HTTP 401 Unauthorized&lt;br&gt;{error: 'session_expired',&lt;br&gt; message: 'Logged in from&lt;br&gt; another device'}&lt;br&gt;&lt;br&gt;→ Forced redirect to /login&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#ffebee;strokeColor=#c62828;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="60" y="1235" width="260" height="95" as="geometry"/>
         </mxCell>
 
         <!-- Device B succeeds -->
-        <mxCell id="sc5" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;Device B: Login Succeeds&lt;/b&gt;&lt;br&gt;New session created&lt;br&gt;New tokens issued&lt;br&gt;→ Redirect to dashboard&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="sc5" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;Device B: Login Succeeds&lt;/b&gt;&lt;br&gt;New session created&lt;br&gt;New tokens issued&lt;br&gt;→ Redirect to dashboard&lt;/font&gt;" style="html=1;rounded=1;whiteSpace=wrap;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="415" y="1255" width="240" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_sc3_sc5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;" edge="1" source="sc3" target="sc5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>

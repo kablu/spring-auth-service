@@ -205,6 +205,156 @@
           <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="600" y="710"/><mxPoint x="600" y="1135"/></Array></mxGeometry>
         </mxCell>
 
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="leg1_box" value="" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#9e9e9e;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="90" width="280" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_title" value="&lt;b&gt;LEGEND&lt;/b&gt;" style="text;html=1;fontSize=14;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="95" width="280" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Shapes Section -->
+        <mxCell id="leg1_sh" value="&lt;b&gt;SHAPES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1295" y="120" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="142" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s1t" value="Process Step / Action" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="142" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s2" value="" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="166" width="22" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s2t" value="Decision Point" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="166" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s3" value="" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=5;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="190" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s3t" value="Error Response" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="190" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s4" value="" style="shape=note;size=8;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="214" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s4t" value="Validation Note" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="214" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s5" value="" style="ellipse;fillColor=#1a237e;strokeColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="240" width="18" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_s5t" value="Start / End" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="240" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Colors Section -->
+        <mxCell id="leg1_cl" value="&lt;b&gt;SWIMLANE COLORS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1295" y="270" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="293" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c1t" value="Browser / Angular SPA" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="290" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c2" value="" style="rounded=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="313" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c2t" value="Spring Auth Server" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="310" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c3" value="" style="rounded=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="333" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c3t" value="Active Directory / LDAP / Success" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="330" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c4" value="" style="rounded=1;fillColor=#fce4ec;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="353" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c4t" value="Database" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="350" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c5" value="" style="rounded=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="373" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c5t" value="Error / Failure" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="370" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c6" value="" style="rounded=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="393" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_c6t" value="Validation Notes" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="390" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Lines Section -->
+        <mxCell id="leg1_ln" value="&lt;b&gt;LINE STYLES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1295" y="418" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l1a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="444" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l1b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="444" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l1e" style="strokeColor=#000000;strokeWidth=1;" edge="1" source="leg1_l1a" target="leg1_l1b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="leg1_l1t" value="Normal Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="438" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l2a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="464" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l2b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="464" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l2e" style="strokeColor=#000000;strokeWidth=1;dashed=1;" edge="1" source="leg1_l2a" target="leg1_l2b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="leg1_l2t" value="Data / Reference Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="458" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l3a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="484" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l3b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="484" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l3e" style="strokeColor=#2e7d32;strokeWidth=2;" edge="1" source="leg1_l3a" target="leg1_l3b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="leg1_l3t" value="Success Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="478" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l4a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="504" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l4b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="504" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l4e" style="strokeColor=#c62828;strokeWidth=2;" edge="1" source="leg1_l4a" target="leg1_l4b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="leg1_l4t" value="Failure Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="498" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l5a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="524" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l5b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="524" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_l5e" style="strokeColor=#2e7d32;strokeWidth=1;dashed=1;" edge="1" source="leg1_l5a" target="leg1_l5b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="leg1_l5t" value="Retry / Loop Back" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="518" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Labels Section -->
+        <mxCell id="leg1_lb" value="&lt;b&gt;EDGE LABELS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1295" y="545" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_lb1" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;SUCCESS&lt;/b&gt;&lt;/font&gt; / &lt;font color='#c62828'&gt;&lt;b&gt;FAIL&lt;/b&gt;&lt;/font&gt; / &lt;b&gt;YES&lt;/b&gt; / &lt;b&gt;NO&lt;/b&gt;" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="565" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1_lb2" value="Decision branch labels on edges" style="text;html=1;fontSize=8;align=left;fillColor=none;strokeColor=none;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="583" width="250" height="15" as="geometry"/>
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
@@ -362,6 +512,152 @@
         </mxCell>
         <mxCell id="e_md2_success" value="SUCCESS" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=10;" edge="1" source="md2" target="mfa_success" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
 
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="mleg_box" value="" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#9e9e9e;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="90" width="280" height="530" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_title" value="&lt;b&gt;LEGEND&lt;/b&gt;" style="text;html=1;fontSize=14;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="95" width="280" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Shapes -->
+        <mxCell id="mleg_sh" value="&lt;b&gt;SHAPES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="120" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="142" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s1t" value="Process Step / Action" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="142" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s2" value="" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="166" width="22" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s2t" value="Decision Point" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="166" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s3" value="" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=5;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="190" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s3t" value="Error Response" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="190" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s4" value="" style="shape=note;size=8;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="214" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s4t" value="Validation Note" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="214" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s5" value="" style="ellipse;fillColor=#1a237e;strokeColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="240" width="18" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_s5t" value="Start / End" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="240" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Colors -->
+        <mxCell id="mleg_cl" value="&lt;b&gt;SWIMLANE COLORS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="270" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="293" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c1t" value="Angular SPA (Browser)" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="290" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c2" value="" style="rounded=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="313" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c2t" value="Auth Server (Backend)" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="310" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c3" value="" style="rounded=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="333" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c3t" value="SMS / Email Service" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="330" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c4" value="" style="rounded=1;fillColor=#fce4ec;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="353" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c4t" value="Database" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="350" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c5" value="" style="rounded=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="373" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c5t" value="Success Response" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="370" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c6" value="" style="rounded=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="393" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c6t" value="Error / Failure" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="390" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c7" value="" style="rounded=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="413" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_c7t" value="Validation Notes" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="410" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Lines -->
+        <mxCell id="mleg_ln" value="&lt;b&gt;LINE STYLES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="438" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l1a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="464" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l1b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="464" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l1e" style="strokeColor=#000000;strokeWidth=1;" edge="1" source="mleg_l1a" target="mleg_l1b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="mleg_l1t" value="Normal Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="458" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l2a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="484" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l2b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="484" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l2e" style="strokeColor=#000000;strokeWidth=1;dashed=1;" edge="1" source="mleg_l2a" target="mleg_l2b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="mleg_l2t" value="Data / Reference Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="478" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l3a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="504" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l3b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="504" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l3e" style="strokeColor=#2e7d32;strokeWidth=2;" edge="1" source="mleg_l3a" target="mleg_l3b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="mleg_l3t" value="Success Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="498" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l4a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="524" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l4b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="524" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_l4e" style="strokeColor=#c62828;strokeWidth=2;" edge="1" source="mleg_l4a" target="mleg_l4b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="mleg_l4t" value="Failure Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="518" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Labels -->
+        <mxCell id="mleg_lb" value="&lt;b&gt;EDGE LABELS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="548" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_lb1" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;SUCCESS&lt;/b&gt;&lt;/font&gt; / &lt;font color='#c62828'&gt;&lt;b&gt;FAIL&lt;/b&gt;&lt;/font&gt; / &lt;b&gt;YES&lt;/b&gt; / &lt;b&gt;NO&lt;/b&gt;" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="568" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="mleg_lb2" value="Decision branch labels on edges" style="text;html=1;fontSize=8;align=left;fillColor=none;strokeColor=none;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="586" width="250" height="15" as="geometry"/>
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
@@ -517,6 +813,150 @@
           <mxGeometry x="415" y="1255" width="240" height="65" as="geometry"/>
         </mxCell>
         <mxCell id="e_sc3_sc5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2e7d32;" edge="1" source="sc3" target="sc5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="sleg_box" value="" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#9e9e9e;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="90" width="280" height="490" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_title" value="&lt;b&gt;LEGEND&lt;/b&gt;" style="text;html=1;fontSize=14;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="95" width="280" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Shapes -->
+        <mxCell id="sleg_sh" value="&lt;b&gt;SHAPES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="120" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="142" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s1t" value="Process Step / Action" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="142" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s2" value="" style="rhombus;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="166" width="22" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s2t" value="Decision Point" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="166" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s3" value="" style="shape=note;size=8;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="190" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s3t" value="Validation / Action Note" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="190" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s4" value="" style="text;fillColor=#e8eaf6;strokeColor=#3f51b5;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="214" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_s4t" value="Section Header (A, B, C)" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="212" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Colors -->
+        <mxCell id="sleg_cl" value="&lt;b&gt;SWIMLANE COLORS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="240" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c1" value="" style="rounded=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="263" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c1t" value="Angular SPA (Browser)" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="260" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c2" value="" style="rounded=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="283" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c2t" value="Auth Server (Backend)" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="280" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c3" value="" style="rounded=1;fillColor=#fce4ec;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="303" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c3t" value="Database" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="300" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c4" value="" style="rounded=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="323" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c4t" value="Success Response" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="320" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c5" value="" style="rounded=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="343" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c5t" value="Error / Failure / Auto-Logout" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="340" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c6" value="" style="rounded=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="363" width="30" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_c6t" value="Validation / Action Notes" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="360" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Lines -->
+        <mxCell id="sleg_ln" value="&lt;b&gt;LINE STYLES&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="388" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l1a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="414" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l1b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="414" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l1e" style="strokeColor=#000000;strokeWidth=1;" edge="1" source="sleg_l1a" target="sleg_l1b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sleg_l1t" value="Normal Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="408" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l2a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="434" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l2b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="434" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l2e" style="strokeColor=#000000;strokeWidth=1;dashed=1;" edge="1" source="sleg_l2a" target="sleg_l2b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sleg_l2t" value="Data / Reference Flow" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="428" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l3a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="454" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l3b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="454" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l3e" style="strokeColor=#2e7d32;strokeWidth=2;" edge="1" source="sleg_l3a" target="sleg_l3b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sleg_l3t" value="Success Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="448" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l4a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="474" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l4b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="474" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l4e" style="strokeColor=#c62828;strokeWidth=2;" edge="1" source="sleg_l4a" target="sleg_l4b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sleg_l4t" value="Failure / Timeout Path" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="468" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l5a" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="494" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l5b" value="" style="rounded=0;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="494" width="5" height="5" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_l5e" style="strokeColor=#2e7d32;strokeWidth=1;dashed=1;" edge="1" source="sleg_l5a" target="sleg_l5b" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sleg_l5t" value="Timer Reset / Loop Back" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="488" width="200" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Labels -->
+        <mxCell id="sleg_lb" value="&lt;b&gt;EDGE LABELS&lt;/b&gt;" style="text;html=1;fontSize=10;fontStyle=5;align=left;fillColor=none;strokeColor=none;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="518" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_lb1" value="&lt;font color='#2e7d32'&gt;&lt;b&gt;YES&lt;/b&gt;&lt;/font&gt; / &lt;font color='#c62828'&gt;&lt;b&gt;NO / Timeout&lt;/b&gt;&lt;/font&gt;" style="text;html=1;fontSize=9;align=left;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="538" width="250" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="sleg_lb2" value="Decision branch labels on edges" style="text;html=1;fontSize=8;align=left;fillColor=none;strokeColor=none;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="556" width="250" height="15" as="geometry"/>
+        </mxCell>
 
       </root>
     </mxGraphModel>
